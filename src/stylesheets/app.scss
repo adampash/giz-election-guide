@@ -66,11 +66,11 @@ body {
 }
 
 .candidate {
+  color: #222;
   cursor: pointer;
   flex: 0 1 112px;
 
   .name-and-party {
-    color: #222;
     font-family: ProximaNovaCond;
     font-size: 18px;
     font-weight: bold;
@@ -173,6 +173,7 @@ body {
     padding: 18px;
 
     img {
+      flex: 0 0 85px;
       height: 85px;
       margin-right: 18px;
       width: 85px;
@@ -187,18 +188,26 @@ body {
       width: 85px;
     }
 
-    .dem {
-      color: #1717d5;
-    }
-
-    .rep {
-      color: rgb(240, 57, 57);
-    }
-
     .description {
       font-family: ElizabethSerif;
       font-size: 16px;
       line-height: 29px;
     }
   }
+}
+
+.dem {
+  color: #1717d5;
+}
+
+.rep {
+  color: rgb(240, 57, 57);
+}
+
+.low-z {
+  z-index: 0;
+}
+
+.high-z {
+  z-index: 100;
 }
