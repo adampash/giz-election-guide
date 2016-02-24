@@ -2,11 +2,6 @@ import { Component } from 'react'
 import { Motion, spring } from 'react-motion'
 
 export default class KinjaResizer extends Component {
-  constructor() {
-    super()
-    this.state = { lastHeight: 300 }
-  }
-
   renderChildren() {
     let resize = this.resize.bind(this)
     return React.Children.map(this.props.children, (child) => {
@@ -32,7 +27,7 @@ export default class KinjaResizer extends Component {
     if (h && !h.isTrusted) {
       height = h
     } else {
-      height = this.getHeight() + 80
+      height = this.getHeight() + 50
     }
     let targetHeight = (height + this.state.lastHeight) / 2
     console.log("HEIGHT: ", height)
@@ -50,7 +45,7 @@ export default class KinjaResizer extends Component {
   }
 
   getHeight() {
-    let minHeight = 100
+    let minHeight = 737
     let body = document.body
     let html = document.documentElement
 
