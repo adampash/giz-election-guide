@@ -56,6 +56,7 @@ class AppContainer extends Component {
           candidate={ candidate }
           key={ index }
           onClick={ this.handleCandidateClick.bind(this) }
+          selected={ candidate.name == this.state.selected }
           />
       )
     })
