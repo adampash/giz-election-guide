@@ -1,9 +1,6 @@
 import { Component } from 'react'
 
 export default class ShowIssues extends Component {
-  getIssues() {
-  }
-
   render() {
     let { candidate, issues } = this.props
     let { name } = candidate

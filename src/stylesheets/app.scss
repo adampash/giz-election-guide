@@ -157,3 +157,43 @@ body {
     font-size: 18px;
   }
 }
+
+.candidates-by-issue {
+  color: $black;
+
+  .candidate-item {
+    background: $light-gradient;
+    display: flex;
+    margin-top: 5px;
+    padding: 18px;
+
+    img {
+      height: 85px;
+      margin-right: 18px;
+      width: 85px;
+    }
+
+    .name {
+      font-family: ProximaNovaCond;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 19px;
+      margin-right: 18px;
+      width: 85px;
+    }
+
+    .dem {
+      color: #1717d5;
+    }
+
+    .rep {
+      color: rgb(240, 57, 57);
+    }
+
+    .description {
+      font-family: ElizabethSerif;
+      font-size: 16px;
+      line-height: 29px;
+    }
+  }
+}

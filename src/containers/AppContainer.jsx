@@ -4,6 +4,7 @@ import SectionHead from '../components/SectionHead'
 import Candidate from '../components/Candidate'
 import Issue from '../components/Issue'
 import ShowIssues from '../components/ShowIssues'
+import CandidatesByIssue from '../components/CandidatesByIssue'
 import { candidates, issues } from '../data/data'
 import {StaggeredMotion, Motion, spring} from 'react-motion'
 
@@ -146,10 +147,10 @@ class AppContainer extends Component {
             }
           </Motion>
 
-          <Motion defaultStyle={{marginLeft: 0, height: 300}}
+          <Motion defaultStyle={{marginLeft: 0, height: 265}}
             style={{
               marginLeft: (!candidateSelected ? spring(0) : spring(-800)),
-              height: (candidateSelected ? spring(0) : spring(300))
+              height: (candidateSelected ? spring(0) : spring(265))
             }}
             >
             {interpolation =>
@@ -165,6 +166,12 @@ class AppContainer extends Component {
             <ShowIssues
               candidate={ this.getSelectedCandidate()}
               issues={ issues }
+            />
+          }
+          { issueSelected &&
+            <CandidatesByIssue
+              candidates={ candidates }
+              issue={ selected }
             />
           }
         </div>
