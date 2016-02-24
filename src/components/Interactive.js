@@ -21,7 +21,7 @@ export default class Interactive extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.resizeFor(20)
+    this.resizeFor(15)
   }
 
   resizeFor(ticks=20) {
@@ -31,7 +31,7 @@ export default class Interactive extends Component {
       resize()
       if (ticks === 0) return
       this.resizeFor(ticks)
-    }), 150)
+    }), 100)
   }
 
   clearSelected() {
@@ -188,7 +188,7 @@ export default class Interactive extends Component {
             }
           </div>
           <div className="backcontainer">
-            { selected &&
+            { selected && !issueSelected &&
               <div
                 className="back"
                 onClick={ this.clearSelected.bind(this) }

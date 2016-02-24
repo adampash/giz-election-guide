@@ -156,15 +156,18 @@ body {
     margin: 0;
   }
 
-  .more {
-    color: #1717d5;
-    font-family: ProximaNovaCond;
-    font-size: 18px;
-  }
+}
+
+.more {
+  color: #1717d5;
+  font-family: ProximaNovaCond;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .candidates-by-issue {
   color: $black;
+  margin-bottom: 10px;
 
   .candidate-item {
     background: $light-gradient;

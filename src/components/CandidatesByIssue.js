@@ -1,9 +1,9 @@
 import { Component } from 'react'
+import urls from '../data/urls'
 
 export default class CandidatesByIssue extends Component {
   renderCandidates() {
     let { candidates, issue } = this.props
-    console.log(issue)
     return candidates.map( (candidate, index) => {
       let { name, party, imagehov } = candidate
       let [first, last] = name.split(/\s/)
@@ -16,21 +16,26 @@ export default class CandidatesByIssue extends Component {
               [{ party }]
             </span>
           </div>
-          <div className="description">{ candidate[issue] }</div>
+          <div className="description">
+            { candidate[issue] }
+          </div>
         </div>
       )
     })
-    return []
   }
 
   render() {
+    let { issue } = this.props
+    let url = urls[issue]
     return(
-      <div className="candidates-by-issue" >
-        { this.renderCandidates() }
+      <div>
+        <div className="candidates-by-issue" >
+          { this.renderCandidates() }
+        </div>
+        <a className="more" target="_blank" href={ url }>
+          Read more about each candidates’ take on { issue }
+        </a>
       </div>
     )
   }
 }
-        // <a className="more" target="_blank">
-        //   More of { lastName }’s views
-        // </a>

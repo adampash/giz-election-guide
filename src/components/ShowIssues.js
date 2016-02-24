@@ -21,6 +21,3 @@ export default class ShowIssues extends Component {
     )
   }
 }
-        // <a className="more" target="_blank">
-        //   More of { lastName }’s views
-        // </a>
