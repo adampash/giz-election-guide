@@ -8,7 +8,6 @@ import CandidatesByIssue from '../components/CandidatesByIssue'
 import { candidates, issues } from '../data/data'
 import {StaggeredMotion, Motion, spring} from 'react-motion'
 
-
 class AppContainer extends Component {
   constructor() {
     super()
@@ -17,6 +16,14 @@ class AppContainer extends Component {
       candidateSelected: false,
       issueSelected: false,
     }
+  }
+
+  componentDidMount() {
+    console.log(this._candidateSection)
+    this.setState({
+      candidateSectionHeight: this._candidateSection.offsetHeight,
+      issueSectionHeight: this._issueSection.offsetHeight,
+    })
   }
 
   clearSelected() {
@@ -76,42 +83,50 @@ class AppContainer extends Component {
     })
   }
 
-  getCandidateStyle() {
-    let { candidateSelected, selected } = this.state
-    let candidateStyle
-    if (candidateSelected || !selected) {
-      candidateStyle = {
-        position: 'relative'
-      }
-    } else {
-      candidateStyle = {
-        position: 'absolute',
-        maxWidth: 636,
-      }
-    }
-    return candidateStyle
-  }
-
-  getIssueStyle() {
-    let { issueSelected, selected } = this.state
-    let issueStyle
-    if (issueSelected || !selected) {
-      issueStyle = {
-        position: 'relative',
-      }
-    } else {
-      issueStyle = {
-        position: 'relative',
-        maxWidth: 636,
-      }
-    }
-    return issueStyle
-  }
+  // getCandidateStyle() {
+  //   let { candidateSelected, selected } = this.state
+  //   let candidateStyle
+  //   if (candidateSelected || !selected) {
+  //     candidateStyle = {
+  //       position: 'relative'
+  //     }
+  //   } else {
+  //     candidateStyle = {
+  //       position: 'relative',
+  //       maxWidth: 636,
+  //     }
+  //   }
+  //   return candidateStyle
+  // }
+  //
+  // getIssueStyle() {
+  //   let { issueSelected, selected } = this.state
+  //   let issueStyle
+  //   if (issueSelected || !selected) {
+  //     issueStyle = {
+  //       position: 'relative',
+  //     }
+  //   } else {
+  //     issueStyle = {
+  //       position: 'relative',
+  //       // maxWidth: 636,
+  //     }
+  //   }
+  //   return issueStyle
+  // }
 
   render() {
-    let { candidateSelected, issueSelected, selected } = this.state
-    let candidateStyle = this.getCandidateStyle()
-    let issueStyle = this.getIssueStyle()
+    let {
+      candidateSelected,
+      issueSelected,
+      selected,
+      candidateSectionHeight,
+      issueSectionHeight,
+    } = this.state
+    console.log(candidateSectionHeight)
+    console.log(issueSectionHeight)
+    // let candidateStyle = this.getCandidateStyle()
+    // let issueStyle = this.getIssueStyle()
 
     return(
       <div>
@@ -132,13 +147,19 @@ class AppContainer extends Component {
           }
         </div>
         <div className="motion-container">
-          <Motion defaultStyle={{left: 0}}
+          <Motion defaultStyle={{
+              marginLeft: 0,
+              height: 237
+            }}
             style={{
-              left: (!issueSelected ? spring(0) : spring(-800))
+              marginLeft: (!issueSelected ? spring(0) : spring(-800)),
+              height: (!issueSelected ? spring(237) : spring(0))
             }}
             >
             {interpolation =>
-              <div style={ {...candidateStyle, ...interpolation} }>
+              <div ref={(c) => this._candidateSection = c}
+                style={ interpolation }
+              >
                 <SectionHead title="The Candidates" />
                 <div className="candidates">
                   { this.renderCandidates() }
@@ -147,14 +168,21 @@ class AppContainer extends Component {
             }
           </Motion>
 
-          <Motion defaultStyle={{marginLeft: 0, height: 265}}
+          <Motion defaultStyle={{
+              marginLeft: 0,
+              marginTop: 0,
+              height: 265
+            }}
             style={{
               marginLeft: (!candidateSelected ? spring(0) : spring(-800)),
-              height: (candidateSelected ? spring(0) : spring(265))
+              height: (candidateSelected ? spring(0) : spring(265)),
+              marginTop: (issueSelected ? spring(-18) : spring(0)),
             }}
             >
             {interpolation =>
-              <div style={ {...issueStyle, ...interpolation} }>
+              <div ref={(c) => this._issueSection = c}
+                style={ interpolation }
+              >
                 <SectionHead title="The Issues" />
                 <div className="issues">
                   { this.renderIssues() }

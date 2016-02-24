@@ -120,7 +120,12 @@ body {
   cursor: pointer;
   font-family: ProximaNovaCond;
   font-size: 18px;
+  margin-top: 10px;
   position: absolute;
+}
+
+.description + .backcontainer > .back {
+  margin-top: 0;
   top: -7px;
 }
 
