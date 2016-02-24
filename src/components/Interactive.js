@@ -7,6 +7,7 @@ import CandidatesByIssue from '../components/CandidatesByIssue'
 import { candidates, issues } from '../data/data'
 import { Motion, spring } from 'react-motion'
 import KinjaResizer from '../components/KinjaResizer'
+import MobileDetect from 'mobile-detect'
 
 
 export default class Interactive extends Component {
@@ -96,6 +97,17 @@ export default class Interactive extends Component {
       issueSelected,
       selected,
     } = this.state
+    let md = new MobileDetect(window.navigator.userAgent)
+    let isMobile = md.mobile() !== null
+    let candidateHeight, issueHeight
+    console.log(isMobile)
+    if (isMobile) {
+      candidateHeight = 183
+      issueHeight = 314
+    } else {
+      candidateHeight = 237
+      issueHeight = 265
+    }
 
     return (
       <KinjaResizer>
@@ -119,11 +131,11 @@ export default class Interactive extends Component {
           <div className="motion-container">
             <Motion defaultStyle={{
                 marginLeft: 0,
-                height: 237
+                height: candidateHeight
               }}
               style={{
                 marginLeft: (!issueSelected ? spring(0) : spring(-800)),
-                height: (!issueSelected ? spring(237) : spring(0))
+                height: (!issueSelected ? spring(candidateHeight) : spring(0))
               }}
               >
               {interpolation =>
@@ -142,11 +154,11 @@ export default class Interactive extends Component {
             <Motion defaultStyle={{
                 marginLeft: 0,
                 marginTop: 0,
-                height: 265
+                height: issueHeight
               }}
               style={{
                 marginLeft: (!candidateSelected ? spring(0) : spring(-800)),
-                height: (candidateSelected ? spring(0) : spring(265)),
+                height: (candidateSelected ? spring(0) : spring(issueHeight)),
                 marginTop: (issueSelected ? spring(-18) : spring(0)),
               }}
               >

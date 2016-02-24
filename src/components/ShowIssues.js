@@ -12,7 +12,9 @@ export default class ShowIssues extends Component {
         { issues.map((issue, index) =>
           <div key={ index }>
             <h4 className="issue-name">{ issue }</h4>
-            { candidate[issue] }
+            <div className="issue-description">
+              { candidate[issue] }
+            </div>
           </div>
         )}
       </div>

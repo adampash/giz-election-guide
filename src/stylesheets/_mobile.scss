@@ -1,0 +1,73 @@
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  .description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .sectionhead {
+    font-size: 18px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .candidate {
+    .name-and-party {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  .issues {
+    font-size: 18px;
+    .issue {
+      margin-bottom: 8px;
+      line-height: 26px;
+
+      .identifier {
+        border: 2px solid #fff;
+        height: 14px;
+        width: 14px;
+        margin-right: 10px;
+        &.selected {
+          border: 0;
+        }
+      }
+    }
+  }
+
+  .candidates-by-issue {
+    .candidate-item {
+      img {
+        flex: 0 0 45px;
+        height: 45px;
+        width: 45px;
+      }
+
+      .name {
+        font-size: 16px;
+        line-height: 18px;
+      }
+
+      .description {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .issues-for-candidates {
+    .issue-name {
+      font-size: 18px;
+      padding-top: 20px;
+    }
+
+    .issue-description {
+      font-size: 14px;
+      line-height: 26px;
+    }
+
+  }
+}
