@@ -20,8 +20,17 @@ export default class Interactive extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    this.resizeFor(20)
+  }
+
+  resizeFor(ticks=20) {
     let { resize } = this.props
-    setTimeout(resize, 1000)
+    setTimeout((() => {
+      ticks--
+      resize()
+      if (ticks === 0) return
+      this.resizeFor(ticks)
+    }), 150)
   }
 
   clearSelected() {
