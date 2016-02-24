@@ -6,6 +6,7 @@ export default class Candidate extends Component {
   }
 
   render() {
+    console.log(this.props.candidate)
     const { name, image, party } = this.props.candidate
     const [first, last] = name.split(/\s/)
     return(

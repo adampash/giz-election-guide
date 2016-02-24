@@ -3,7 +3,7 @@ import { connect, dispatch } from 'react-redux'
 import SectionHead from '../components/SectionHead'
 import Candidate from '../components/Candidate'
 import Issue from '../components/Issue'
-import { candidates, issues } from '../data/candidates'
+import { candidates, issues } from '../data/data'
 
 
 class AppContainer extends Component {
