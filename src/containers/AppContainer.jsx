@@ -31,6 +31,7 @@ class AppContainer extends Component {
         <Issue issue={ issue }
           key={ index }
           selected={ selected === issue}
+          onClick={ this.handleIssueClick.bind(this) }
         />
       )
     })

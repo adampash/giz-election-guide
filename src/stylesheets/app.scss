@@ -9,7 +9,7 @@ $light-gradient: linear-gradient(left, rgb(240, 240, 252), rgb(255, 243, 244));
 // ProximaNovaCond
 
 html {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -44,6 +44,7 @@ body {
   font-family: ElizabethSerif;
   font-size: 20px;
   line-height: 30px;
+  padding-bottom: 12px;
 }
 
 .sectionhead {
@@ -52,7 +53,7 @@ body {
   font-family: ProximaNovaCond;
   font-size: 24px;
   height: 45px;
-  margin-top: 30px;
+  margin-top: 18px;
   padding: 10px 18px 0;
 }
 

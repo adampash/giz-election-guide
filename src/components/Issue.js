@@ -6,10 +6,10 @@ export default class Issue extends Component {
   }
 
   render() {
-    const { issue, selected } = this.props
+    const { issue, selected, onClick } = this.props
     return(
       <div
-        onClick={this.handleClick}
+        onClick={ (e) => onClick(issue) }
         className="issue"
         >
         <div className={ "identifier" + (selected ? " selected" : "") }></div>
