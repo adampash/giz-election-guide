@@ -66,6 +66,7 @@ body {
 }
 
 .candidate {
+  cursor: pointer;
   flex: 0 1 112px;
 
   .name-and-party {
@@ -108,4 +109,17 @@ body {
     }
   }
 
+}
+
+.backcontainer {
+  position: relative;
+}
+
+.back {
+  color: #999;
+  cursor: pointer;
+  font-family: ProximaNovaCond;
+  font-size: 18px;
+  position: absolute;
+  top: -7px;
 }

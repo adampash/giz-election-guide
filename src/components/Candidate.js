@@ -6,12 +6,12 @@ export default class Candidate extends Component {
   }
 
   render() {
-    console.log(this.props.candidate)
-    const { name, image, party } = this.props.candidate
+    const { onClick, candidate } = this.props
+    const { name, image, party } = candidate
     const [first, last] = name.split(/\s/)
     return(
       <div
-        onClick={this.handleClick}
+        onClick={ (e) => onClick(name) }
         className="candidate"
         >
         <img src={ image } />
