@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import SectionHead from '../components/SectionHead'
 import Candidate from '../components/Candidate'
 import Issue from '../components/Issue'
+import ShowIssues from '../components/ShowIssues'
 import { candidates, issues } from '../data/data'
-import {Motion, spring} from 'react-motion'
+import {StaggeredMotion, Motion, spring} from 'react-motion'
 
 
 class AppContainer extends Component {
@@ -23,6 +24,13 @@ class AppContainer extends Component {
       candidateSelected: false,
       issueSelected: false
     })
+  }
+
+  getSelectedCandidate() {
+    let { selected } = this.state
+    return candidates.find(
+      candidate => candidate.name === selected
+    )
   }
 
   handleIssueClick(issue) {
@@ -48,7 +56,7 @@ class AppContainer extends Component {
           candidate={ candidate }
           key={ index }
           onClick={ this.handleCandidateClick.bind(this) }
-        />
+          />
       )
     })
   }
@@ -61,7 +69,7 @@ class AppContainer extends Component {
           key={ index }
           selected={ selected === issue}
           onClick={ this.handleIssueClick.bind(this) }
-        />
+          />
       )
     })
   }
@@ -87,11 +95,11 @@ class AppContainer extends Component {
     let issueStyle
     if (issueSelected || !selected) {
       issueStyle = {
-        position: 'relative'
+        position: 'relative',
       }
     } else {
       issueStyle = {
-        position: 'absolute',
+        position: 'relative',
         maxWidth: 636,
       }
     }
@@ -99,7 +107,6 @@ class AppContainer extends Component {
   }
 
   render() {
-    console.log(this.state)
     let { candidateSelected, issueSelected, selected } = this.state
     let candidateStyle = this.getCandidateStyle()
     let issueStyle = this.getIssueStyle()
@@ -117,40 +124,59 @@ class AppContainer extends Component {
             <div
               className="back"
               onClick={ this.clearSelected.bind(this) }
-            >
+              >
               Back to menu
             </div>
           }
         </div>
-        <Motion defaultStyle={{left: 0}}
-          style={{
-            left: (!issueSelected ? spring(0) : spring(-800))
-          }}
-        >
-          {interpolation =>
-            <div style={ {...candidateStyle, ...interpolation} }>
-              <SectionHead title="The Candidates" />
-              <div className="candidates">
-                { this.renderCandidates() }
+        <div className="motion-container">
+          <Motion defaultStyle={{left: 0}}
+            style={{
+              left: (!issueSelected ? spring(0) : spring(-800))
+            }}
+            >
+            {interpolation =>
+              <div style={ {...candidateStyle, ...interpolation} }>
+                <SectionHead title="The Candidates" />
+                <div className="candidates">
+                  { this.renderCandidates() }
+                </div>
               </div>
-            </div>
-          }
-        </Motion>
+            }
+          </Motion>
 
-        <Motion defaultStyle={{left: 0}}
-          style={{
-            left: (!candidateSelected ? spring(0) : spring(-800))
-          }}
-        >
-          {interpolation =>
-            <div style={ {...issueStyle, ...interpolation} }>
-              <SectionHead title="The Issues" />
-              <div className="issues">
-                { this.renderIssues() }
+          <Motion defaultStyle={{marginLeft: 0, height: 300}}
+            style={{
+              marginLeft: (!candidateSelected ? spring(0) : spring(-800)),
+              height: (candidateSelected ? spring(0) : spring(300))
+            }}
+            >
+            {interpolation =>
+              <div style={ {...issueStyle, ...interpolation} }>
+                <SectionHead title="The Issues" />
+                <div className="issues">
+                  { this.renderIssues() }
+                </div>
               </div>
+            }
+          </Motion>
+          { candidateSelected &&
+            <ShowIssues
+              candidate={ this.getSelectedCandidate()}
+              issues={ issues }
+            />
+          }
+        </div>
+        <div className="backcontainer">
+          { selected &&
+            <div
+              className="back"
+              onClick={ this.clearSelected.bind(this) }
+              >
+              Back to menu
             </div>
           }
-        </Motion>
+        </div>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-export default class Candidate extends Component {
+export default class IssueRow extends Component {
   render() {
     const { onClick, candidate } = this.props
     const { name, image, party } = candidate

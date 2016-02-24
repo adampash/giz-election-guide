@@ -9,7 +9,7 @@ $light-gradient: linear-gradient(left, rgb(240, 240, 252), rgb(255, 243, 244));
 // ProximaNovaCond
 
 html {
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 body {
@@ -122,4 +122,38 @@ body {
   font-size: 18px;
   position: absolute;
   top: -7px;
+}
+
+.motion-container {
+  max-width: 636px;
+  position: relative;
+}
+
+.issues-for-candidates {
+  background: $light-gradient;
+  color: $black;
+  margin-top: -12px;
+  padding: 0 18px;
+
+  .issue-name {
+    font-family: ProximaNovaCond;
+    font-size: 20px;
+    line-height: 29px;
+    margin-bottom: 2px;
+    margin-top: 0;
+    padding-top: 34px;
+  }
+
+  .issue-description {
+    font-family: ElizabethSerif;
+    font-size: 16px;
+    line-height: 29px;
+    margin: 0;
+  }
+
+  .more {
+    color: #1717d5;
+    font-family: ProximaNovaCond;
+    font-size: 18px;
+  }
 }
