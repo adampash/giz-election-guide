@@ -29,7 +29,6 @@ export default class KinjaResizer extends Component {
     } else {
       height = this.getHeight() + 50
     }
-    let targetHeight = (height + this.state.lastHeight) / 2
     console.log("HEIGHT: ", height)
     window.top.postMessage(
       JSON.stringify({
@@ -41,7 +40,6 @@ export default class KinjaResizer extends Component {
         }
       }), '*'
     )
-    // this.setState({ lastHeight: targetHeight })
   }
 
   getHeight() {
