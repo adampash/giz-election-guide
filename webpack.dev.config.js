@@ -4,6 +4,9 @@
 const path = require('path')
 const config = require('./webpack.common.config')
 const webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
+const precss       = require('precss')
+
 
 if (config.home) {
   url = "http://0.0.0.0"
@@ -33,12 +36,16 @@ config.devtool = 'eval-source-map'
 config.module.loaders.push(
       {
         test: /\.scss$/,
-        loader: "style!css?sourceMap!autoprefixer-loader!sass"
+        loader: "style!css?sourceMap!postcss-loader!sass"
       },
       {
         test: /\.jsx?$/, loaders: ['react-hot', 'babel'],
         include: path.join(__dirname, 'src')
       }
 )
+
+config.postcss = function () {
+  return [autoprefixer, precss]
+}
 
 module.exports = config
