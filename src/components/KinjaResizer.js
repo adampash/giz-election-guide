@@ -43,7 +43,7 @@ export default class KinjaResizer extends Component {
   }
 
   getHeight() {
-    let minHeight = 737
+    let minHeight = 650
     let body = document.body
     let html = document.documentElement
 

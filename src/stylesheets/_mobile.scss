@@ -21,10 +21,12 @@
   }
 
   .issues {
-    font-size: 18px;
+    font-size: 16px;
+
     .issue {
+      flex: 0 1 50%;
       margin-bottom: 8px;
-      line-height: 26px;
+      line-height: 20px;
 
       .identifier {
         border: 2px solid #fff;
@@ -51,7 +53,7 @@
         line-height: 18px;
       }
 
-      .description {
+      .candidate-take {
         font-size: 14px;
         line-height: 22px;
       }

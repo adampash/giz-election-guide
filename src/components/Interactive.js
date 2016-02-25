@@ -103,10 +103,10 @@ export default class Interactive extends Component {
     console.log(isMobile)
     if (isMobile) {
       candidateHeight = 183
-      issueHeight = 314
+      issueHeight = 180
     } else {
       candidateHeight = 237
-      issueHeight = 265
+      issueHeight = 217
     }
 
     return (
@@ -159,7 +159,7 @@ export default class Interactive extends Component {
               style={{
                 marginLeft: (!candidateSelected ? spring(0) : spring(-800)),
                 height: (candidateSelected ? spring(0) : spring(issueHeight)),
-                marginTop: (issueSelected ? spring(-18) : spring(0)),
+                marginTop: (issueSelected ? spring(-6) : spring(0)),
               }}
               >
               {interpolation =>

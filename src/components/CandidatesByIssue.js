@@ -9,14 +9,14 @@ export default class CandidatesByIssue extends Component {
       let [first, last] = name.split(/\s/)
       return (
         <div className="candidate-item" key={ index }>
-          <img src={ imagehov } />
           <div className="name">
             { first } <br /> { last } <br />
             <span className={ party === "D" ? "dem" : "rep" }>
               [{ party }]
             </span>
           </div>
-          <div className="description">
+          <img src={ imagehov } />
+          <div className="candidate-take">
             { candidate[issue] }
           </div>
         </div>
