@@ -100,7 +100,7 @@ export default class Interactive extends Component {
     let md = new MobileDetect(window.navigator.userAgent)
     let isMobile = md.mobile() !== null
     let candidateHeight, issueHeight
-    console.log(isMobile)
+    // console.log(isMobile)
     if (isMobile) {
       candidateHeight = 183
       issueHeight = 180
@@ -115,8 +115,7 @@ export default class Interactive extends Component {
           <h4 className="header">Gizmodo Interactive</h4>
           <h2 className="title">Gizmodo 2016 Election Guide</h2>
           <div className="description">
-            Click on a candidate to explore that candidate’s views or click an issue to see every candidates’ position on that subject.
-            Click the link below each topic for more detailed information.
+            Click on a candidate to explore that candidate’s views or click an issue to see every candidates’ position on that subject. Click the link below each topic for more detailed information.
           </div>
           <div className="backcontainer">
             { selected &&
