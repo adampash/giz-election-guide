@@ -21,7 +21,7 @@ export default class Interactive extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.resizeFor(15)
+    this.resizeFor(12)
   }
 
   resizeFor(ticks=20) {
@@ -115,8 +115,8 @@ export default class Interactive extends Component {
           <h4 className="header">Gizmodo Interactive</h4>
           <h2 className="title">Gizmodo 2016 Election Guide</h2>
           <div className="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Click on a candidate to explore that candidate’s views or click an issue to see every candidates’ position on that subject.
+            Click the link below each topic for more detailed information.
           </div>
           <div className="backcontainer">
             { selected &&
